@@ -48,12 +48,12 @@ After this correct data types were applied to date columns (to allow accurate ca
 
 <p align="center">
   <img src="images/Figure%205.png" width="400"><br>
-  <strong>Figure 5
+  <strong>Figure 5</strong>
 </p>
 
 <p align="center">
   <img src="images/Figure%206.png" width="400"><br>
-  <strong>Figure 6
+  <strong>Figure 6</strong>
 </p>
 
 ### Load
@@ -61,7 +61,7 @@ Finally the cleansed data was saved as a cleansed final dataset (to be used late
 
 <p align="center">
   <img src="images/Figure%207.png" width="400"><br>
-  <strong>Figure 7
+  <strong>Figure 7</strong>
 </p>
 
 ## Data Visualisation
@@ -69,43 +69,43 @@ After cleaning the data some Exploratory data Analysis was carried using python�
 
 <p align="center">
   <img src="images/Figure%208.png" width="400"><br>
-  <strong>Figure 8
+  <strong>Figure 8</strong>
 </p>
 
 We then did a basic target distribution using a bar chart to visualise the distribution of late vs on-time deliveries. The analysis showded a clear difference between on-time and late deliveries with late delieviries being much higher. This was created using the seaborn function sns.countplot which can be seen in figure 9. Figure 10 shows the output. 
 
 <p align="center">
   <img src="images/Figure%209.png" width="400"><br>
-  <strong>Figure 9
+  <strong>Figure 9</strong>
 </p>
 
 <p align="center">
   <img src="images/Figure%2010.png" width="400"><br>
-  <strong>Figure 10
+  <strong>Figure 10</strong>
 </p>
 
 For further exploration of late delivery risk a boxplot was then created to showcase comparison of late delivery again shipping delays. This showed a clear distribution that orders classified as Late showed higher shipping delay values in comparison to on-time deliveries (as can be seen in figure 12). A logistics regression model was created to show proof of this, which we will showcase a little later. This was created using seaborn function sns.boxplot (as can be seen in figure 11
 
 <p align="center">
   <img src="images/Figure%2011.png" width="400"><br>
-  <strong>Figure 11
+  <strong>Figure 11</strong>
 </p>
 
 <p align="center">
   <img src="images/Figure%2012.png" width="400"><br>
-  <strong>Figure 12
+  <strong>Figure 12</strong>
 </p>
 
 Finally for the final part of the EDA another bar chart was created to showcase comparison of shipping modes vs shipping delay days. This showed a clear indication of some modes exhibiting lower delay profile, namely same day delivery showing lower shipping delays (as seen in figure 14). The bar chart was created using panda/matplotlib function .plot(kind=”bar”) after creating an average column for shipping delay days (see figure 13)
 
 <p align="center">
   <img src="images/Figure%2013.png" width="400"><br>
-  <strong>Figure 13
+  <strong>Figure 13</strong>
 </p>
 
 <p align="center">
   <img src="images/Figure%2014.png" width="400"><br>
-  <strong>Figure 14
+  <strong>Figure 14</strong>
 </p>
 
 ## Data Analytics
@@ -113,14 +113,14 @@ Once exploring the data further a logistics regression model was created to pred
 
 <p align="center">
   <img src="images/Figure%2015.png" width="400"><br>
-  <strong>Figure 15
+  <strong>Figure 15</strong>
 </p>
 
 Next the data was split into feature and target variables. The target variable is what we want to predict so late delivery risk in this instance, whereas the features are variable we want to use to make that prediction (in this instance certain object based column were dropped along with late delivery risk column like delivery status as it directly reveals the answer as seen in figure 16).
 
 <p align="center">
   <img src="images/Figure%2016.png" width="400"><br>
-  <strong>Figure 16
+  <strong>Figure 16</strong>
 </p>
 
 The data was then split into train/test set using and 80:20 ratio. This was done using the function in SKlearn called train_test_split() (see figure 17), a method used to split the data (GeeksforGeeks, 2025). 
@@ -129,33 +129,33 @@ The numerical features were then standardised using standardscaler (an SKlearn F
 
 <p align="center">
   <img src="images/Figure%2017.png" width="400"><br>
-  <strong>Figure 17
+  <strong>Figure 17</strong>
 </p>
 
 <p align="center">
   <img src="images/Figure%2018.png" width="400"><br>
-  <strong>Figure 18
+  <strong>Figure 18</strong>
 </p>
 
 The model was then trained using the logisticRegression() SKlearn function (see figure 19) and then evaluated for accuracy and made predictions. The model showed an accuracy of 0.974 (s0 97.4% accuracy), whilst correctly identifying all late deliveries and only misclassifying a few on-time deliveries as late (showing a recall off 0.94, meaning only 6% were misclassified) – this makes the model very useful for predicting delivery risk in logistics. The results can be seen in figure 20. Figure 21 shows the matrix of the results, this was created using sns.heatmap a seaborn function. 
 
 <p align="center">
   <img src="images/Figure%2019.png" width="400"><br>
-  <strong>Figure 19
+  <strong>Figure 19</strong>
 </p>
 
 <p align="center">
   <img src="images/Figure%2020.png" alt="Figure 20" height="200">
-  <strong>Figure 20
+  <strong>Figure 20</strong>
   <img src="images/Figure%2021.png" alt="Figure 21" height="200">
-  <strong>Figure 21
+  <strong>Figure 21</strong>
 </p>
 
 Finally feature importance was assessed to see what features lead to further delays in late deliveries. It was found that features like shipping delays had a high positive coefficient which means this increase late delivery risk, whereas there was negative coefficients for shipping mode same day which meant it directly relates to reducing delays. Overall these insights directly align with the EDA findings. See figure 22 and 23 for clear view of this. 
 
 <p align="center">
   <img src="images/Figure%2022.png" alt="Figure 20" height="200">
-  <strong>Figure 22
+  <strong>Figure 22</strong>
   <img src="images/Figure%2023.png" alt="Figure 21" height="200">
-  <strong>Figure 23
+  <strong>Figure 23</strong>
 </p>
