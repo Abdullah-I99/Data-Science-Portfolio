@@ -32,8 +32,10 @@ we began by importing the CSV dataset into a pandas DataFrame using pd.read_csv(
 |:---------------------------------:|:---------------------------------:|
 | **Figure 1**   | **Figure 2**  |
 
-![Figure3](images/Figure%203.png)
-**Figure 3**
+<p align="center">
+  <img src="images/Figure%203.png" width="400"><br>
+  <strong>Figure 3</strong>
+</p>
 
 ### Transform
 The data was then cleansed by reducing the number of columns needed (reducing from 53 to 12. This was to remove irrelevant columns like customer info etc. This was done by defining the columns we wanted to keep and then using a DataFrame along with copy() to create a new DataFrame. 
@@ -41,8 +43,10 @@ The data was then cleansed by reducing the number of columns needed (reducing fr
 After this correct data types were applied to date columns (to allow accurate calculation of certain columns) like shipping and order date column. These were converted to datetime format, using the pd.to_datetime() function. This can be seen in figure 4
 
 
-![Figure4](images/Figure%204.png)
-**Figure 4**
+<p align="center">
+  <img src="images/Figure%204.png" width="400"><br>
+  <strong>Figure 4</strong>
+</p>
 
 2 new columns were created in the dataframe to show number of days from order to ship and days delayed. The previous step was very important (changing to datetime data type) to create the order to ship days column. The code is very self explanotary of how these both column were created and calculate, please see figure 5 as an example. The 2 date columns were then dropped using function df.drop() as these were no longer needed. See figure 6. 
 
@@ -150,15 +154,6 @@ The model was then trained using the logisticRegression() SKlearn function (see 
 
 Finally feature importance was assessed to see what features lead to further delays in late deliveries. It was found that features like shipping delays had a high positive coefficient which means this increase late delivery risk, whereas there was negative coefficients for shipping mode same day which meant it directly relates to reducing delays. Overall these insights directly align with the EDA findings. See figure 22 and 23 for clear view of this. 
 
-<table align="center">
-  <tr>
-    <td align="center">
-      <img src="images/Figure%2022.png" alt="Figure 22" height="200"><br>
-      <strong>Figure 22</strong>
-    </td>
-    <td align="center">
-      <img src="images/Figure%2023.png" alt="Figure 23" height="200"><br>
-      <strong>Figure 23</strong>
-    </td>
-  </tr>
-</table>
+| ![Figure 22](images/Figure%2022.png) | ![Figure 21](images/Figure%2023.png) |
+|:---------------------------------:|:---------------------------------:|
+| **Figure 22**   | **Figure 23**  |>
