@@ -27,24 +27,13 @@ This area focused heavily on transforming raw supply chain data into data ready 
 
 ### Extract
 we began by importing the CSV dataset into a pandas DataFrame using pd.read_csv() function (which can be seen in figure 1). I also ran initial exploration of the data to understand structure and content which can be seen in figure 1, figure 2 and figure 3. 
-<table>
-  <tr>
-    <td>
-      <img src="images/Figure%201.png" width="300"><br>
-      <strong>Figure 1
-    </td>
-    <td rowspan="2">
-      <img src="images/Figure%203.png" width="350"><br>
-      <strong>Figure 3
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="images/Figure%202.png" width="300"><br>
-      <strong>Figure 2
-    </td>
-  </tr>
-</table>
+
+| ![Figure 1](images/Figure%201.png) | ![Figure 2](images/Figure%202.png) |
+|:---------------------------------:|:---------------------------------:|
+| **Figure 1**   | **Figure 2**  |
+
+![Figure3](images/Figure%203.png)
+**Figure 3**
 
 ### Transform
 The data was then cleansed by reducing the number of columns needed (reducing from 53 to 12. This was to remove irrelevant columns like customer info etc. This was done by defining the columns we wanted to keep and then using a DataFrame along with copy() to create a new DataFrame. 
@@ -52,10 +41,8 @@ The data was then cleansed by reducing the number of columns needed (reducing fr
 After this correct data types were applied to date columns (to allow accurate calculation of certain columns) like shipping and order date column. These were converted to datetime format, using the pd.to_datetime() function. This can be seen in figure 4
 
 
-<p align="center">
-  <img src="images/Figure%204.png" width="400"><br>
-  <strong>Figure 4
-</p>
+![Figure4](images/Figure%204.png)
+**Figure 4**
 
 2 new columns were created in the dataframe to show number of days from order to ship and days delayed. The previous step was very important (changing to datetime data type) to create the order to ship days column. The code is very self explanotary of how these both column were created and calculate, please see figure 5 as an example. The 2 date columns were then dropped using function df.drop() as these were no longer needed. See figure 6. 
 
