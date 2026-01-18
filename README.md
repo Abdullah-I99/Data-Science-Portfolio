@@ -123,3 +123,52 @@ Finally for the final part of the EDA another bar chart was created to showcase 
 
 ## Data Analytics
 Once exploring the data further a logistics regression model was created to predict late delivery risk using the static dataset. Once the data was loaded certain object based column either needed to be dropped or turned in numeric features (as logistics regression cannot work directly with strings). Columns shipping mode was converted into binary format using one hot encoding, this creates a new column for each category where 1 = exists and 0 = does not exist (GeeksforGeeks, 2025), this can be seen in figure 15. 
+
+<p align="center">
+  <img src="images/Figure%2015.png" width="400"><br>
+  <strong>Figure 15
+</p>
+
+Next the data was split into feature and target variables. The target variable is what we want to predict so late delivery risk in this instance, whereas the features are variable we want to use to make that prediction (in this instance certain object based column were dropped along with late delivery risk column like delivery status as it directly reveals the answer as seen in figure 16).
+
+<p align="center">
+  <img src="images/Figure%2016.png" width="400"><br>
+  <strong>Figure 16
+</p>
+
+The data was then split into train/test set using and 80:20 ratio. This was done using the function in SKlearn called train_test_split() (see figure 17), a method used to split the data (GeeksforGeeks, 2025). 
+
+The numerical features were then standardised using standardscaler (an SKlearn Function). According to GeeksforGeeks, this transformation adjusts the data so that each feature has a mean of 0 and a standard deviation of 1. In simple terms, this puts all numerical values so they were all on a similar range to stop one feature (for example sales, which has much larger values) from dominating the model. The way this is performed can be seen in figure 18
+
+<p align="center">
+  <img src="images/Figure%2017.png" width="400"><br>
+  <strong>Figure 17
+</p>
+
+<p align="center">
+  <img src="images/Figure%2018.png" width="400"><br>
+  <strong>Figure 18
+</p>
+
+The model was then trained using the logisticRegression() SKlearn function (see figure 19) and then evaluated for accuracy and made predictions. The model showed an accuracy of 0.974 (s0 97.4% accuracy), whilst correctly identifying all late deliveries and only misclassifying a few on-time deliveries as late (showing a recall off 0.94, meaning only 6% were misclassified) – this makes the model very useful for predicting delivery risk in logistics. The results can be seen in figure 20. Figure 21 shows the matrix of the results, this was created using sns.heatmap a seaborn function. 
+
+<p align="center">
+  <img src="images/Figure%2019.png" width="400"><br>
+  <strong>Figure 19
+</p>
+
+<p align="center">
+  <img src="images/Figure%2020.png" alt="Figure 20" height="200">
+  <strong>Figure 20
+  <img src="images/Figure%2021.png" alt="Figure 21" height="200">
+  <strong>Figure 21
+</p>
+
+Finally feature importance was assessed to see what features lead to further delays in late deliveries. It was found that features like shipping delays had a high positive coefficient which means this increase late delivery risk, whereas there was negative coefficients for shipping mode same day which meant it directly relates to reducing delays. Overall these insights directly align with the EDA findings. See figure 22 and 23 for clear view of this. 
+
+<p align="center">
+  <img src="images/Figure%2022.png" alt="Figure 20" height="200">
+  <strong>Figure 22
+  <img src="images/Figure%2023.png" alt="Figure 21" height="200">
+  <strong>Figure 23
+</p>
