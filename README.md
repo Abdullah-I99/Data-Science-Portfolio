@@ -26,7 +26,7 @@ There are limitations to using the above models and datasets as it only operates
 This area focused heavily on transforming raw supply chain data into data ready to be used for exploration, by removing irrelevant columns, looking at data structures and removing null values. We use the ETL process which is highlighted below. 
 
 ### Extract
-I began by importing the CSV dataset into a pandas DataFrame using pd.read_csv() function (which can be seen in figure 1). I also ran initial exploration of the data to understand structure and content which can be seen in figure 1, figure 2 and figure 3. 
+we began by importing the CSV dataset into a pandas DataFrame using pd.read_csv() function (which can be seen in figure 1). I also ran initial exploration of the data to understand structure and content which can be seen in figure 1, figure 2 and figure 3. 
 <table>
   <tr>
     <td>
@@ -47,16 +47,17 @@ I began by importing the CSV dataset into a pandas DataFrame using pd.read_csv()
 </table>
 
 ### Transform
-The data was then began the cleansing of the data by reducing the number of columns needed (reducing from 53 to 12. This was to remove irrelevant columns like customer info etc. This was done by defining the columns we wanted to keep and then using a DataFrame along with copy() to create a new DataFrame. 
+The data was then cleansed by reducing the number of columns needed (reducing from 53 to 12. This was to remove irrelevant columns like customer info etc. This was done by defining the columns we wanted to keep and then using a DataFrame along with copy() to create a new DataFrame. 
 
-After this we applied correct data types to date columns (to allow accurate calculation of certain columns) like shipping and order date column. These were converted to datetime format, using the pd.to_datetime() function. This can be seen in figure 4
+After this correct data types were applied to date columns (to allow accurate calculation of certain columns) like shipping and order date column. These were converted to datetime format, using the pd.to_datetime() function. This can be seen in figure 4
+
 
 <p align="center">
   <img src="images/Figure%204.png" width="400"><br>
   <strong>Figure 4
 </p>
 
-We then created 2 new columns in the dataframe to show number of days from order to ship and days delayed. The previous step was very important (changing to datetime data type) to create the order to ship days column. The code is very self explanotary of how these both column were created and calculate, please see figure 5 as an example. The 2 date columns were then dropped using function df.drop() as these were no longer needed. See figure 6. 
+2 new columns were created in the dataframe to show number of days from order to ship and days delayed. The previous step was very important (changing to datetime data type) to create the order to ship days column. The code is very self explanotary of how these both column were created and calculate, please see figure 5 as an example. The 2 date columns were then dropped using function df.drop() as these were no longer needed. See figure 6. 
 
 <p align="center">
   <img src="images/Figure%205.png" width="400"><br>
@@ -75,3 +76,50 @@ Finally the cleansed data was saved as a cleansed final dataset (to be used late
   <img src="images/Figure%207.png" width="400"><br>
   <strong>Figure 7
 </p>
+
+## Data Visualisation
+After cleaning the data some Exploratory data Analysis was carried using python’s Matplotlib and seaborn libraries. Initially importing the relevant libraries needed for analysis (see figure 8) and then loaded the cleansed data using pd.read_csv() function (see figure 1 for example). 
+
+<p align="center">
+  <img src="images/Figure%208.png" width="400"><br>
+  <strong>Figure 8
+</p>
+
+We then did a basic target distribution using a bar chart to visualise the distribution of late vs on-time deliveries. The analysis showded a clear difference between on-time and late deliveries with late delieviries being much higher. This was created using the seaborn function sns.countplot which can be seen in figure 9. Figure 10 shows the output. 
+
+<p align="center">
+  <img src="images/Figure%209.png" width="400"><br>
+  <strong>Figure 9
+</p>
+
+<p align="center">
+  <img src="images/Figure%2010.png" width="400"><br>
+  <strong>Figure 10
+</p>
+
+For further exploration of late delivery risk a boxplot was then created to showcase comparison of late delivery again shipping delays. This showed a clear distribution that orders classified as Late showed higher shipping delay values in comparison to on-time deliveries (as can be seen in figure 12). A logistics regression model was created to show proof of this, which we will showcase a little later. This was created using seaborn function sns.boxplot (as can be seen in figure 11
+
+<p align="center">
+  <img src="images/Figure%2011.png" width="400"><br>
+  <strong>Figure 11
+</p>
+
+<p align="center">
+  <img src="images/Figure%2012.png" width="400"><br>
+  <strong>Figure 12
+</p>
+
+Finally for the final part of the EDA another bar chart was created to showcase comparison of shipping modes vs shipping delay days. This showed a clear indication of some modes exhibiting lower delay profile, namely same day delivery showing lower shipping delays (as seen in figure 14). The bar chart was created using panda/matplotlib function .plot(kind=”bar”) after creating an average column for shipping delay days (see figure 13)
+
+<p align="center">
+  <img src="images/Figure%2013.png" width="400"><br>
+  <strong>Figure 13
+</p>
+
+<p align="center">
+  <img src="images/Figure%2014.png" width="400"><br>
+  <strong>Figure 14
+</p>
+
+## Data Analytics
+Once exploring the data further a logistics regression model was created to predict late delivery risk using the static dataset. Once the data was loaded certain object based column either needed to be dropped or turned in numeric features (as logistics regression cannot work directly with strings). Columns shipping mode was converted into binary format using one hot encoding, this creates a new column for each category where 1 = exists and 0 = does not exist (GeeksforGeeks, 2025), this can be seen in figure 15. 
