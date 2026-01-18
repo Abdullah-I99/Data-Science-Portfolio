@@ -144,18 +144,12 @@ The model was then trained using the logisticRegression() SKlearn function (see 
   <strong>Figure 19</strong>
 </p>
 
-<p align="center">
-  <img src="images/Figure%2020.png" alt="Figure 20" height="200">
-  <strong>Figure 20</strong>
-  <img src="images/Figure%2021.png" alt="Figure 21" height="200">
-  <strong>Figure 21</strong>
-</p>
+| ![Figure 20](images/Figure%2020.png) | ![Figure 21](images/Figure%2021.png) |
+|:---------------------------------:|:---------------------------------:|
+| **Figure 20**   | **Figure 21**  |
 
 Finally feature importance was assessed to see what features lead to further delays in late deliveries. It was found that features like shipping delays had a high positive coefficient which means this increase late delivery risk, whereas there was negative coefficients for shipping mode same day which meant it directly relates to reducing delays. Overall these insights directly align with the EDA findings. See figure 22 and 23 for clear view of this. 
 
-<p align="center">
-  <img src="images/Figure%2022.png" alt="Figure 20" height="200">
-  <strong>Figure 22</strong>
-  <img src="images/Figure%2023.png" alt="Figure 21" height="200">
-  <strong>Figure 23</strong>
-</p>
+| ![Figure 22](images/Figure%2022.png) | ![Figure 21](images/Figure%2023.png) |
+|:---------------------------------:|:---------------------------------:|
+| **Figure 22**   | **Figure 23**  |>
