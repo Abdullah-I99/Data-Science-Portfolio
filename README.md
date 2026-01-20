@@ -157,3 +157,13 @@ Finally feature importance was assessed to see what features lead to further del
 | ![Figure 22](images/Figure%2022.png) | ![Figure 21](images/Figure%2023.png) |
 |:---------------------------------:|:---------------------------------:|
 | **Figure 22**   | **Figure 23**  |>
+
+## References
+
+Shashwatwork, 2025. DataCo Smart Supply Chain for Big Data Analytics. Kaggle [Online].  Available at: https://www.kaggle.com/datasets/shashwatwork/dataco-smart-supply-chain-for-big-data-analysis/data [Accessed: 11 January 2026]
+
+GeeksforGeek, 2025. One Hot Encoding in Machine Learning [Online]. Available at: https://www.geeksforgeeks.org/machine-learning/ml-one-hot-encoding/ [Accessed: 15 January 2026]
+
+GeeksforGeek, 2025. How To Do Train Test Split Using Sklearn In Python [Online]. Available at: https://www.geeksforgeeks.org/machine-learning/how-to-do-train-test-split-using-sklearn-in-python/ [Accessed: 15 January 2026]
+
+GeeksforGeek, 2025. StandardScaler, MinMaxScaler and RobustScaler techniques – ML [Online]. Available at: https://www.geeksforgeeks.org/machine-learning/standardscaler-minmaxscaler-and-robustscaler-techniques-ml/  [Accessed: 15 January 2026]
